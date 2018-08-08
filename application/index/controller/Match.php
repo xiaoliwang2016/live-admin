@@ -9,7 +9,7 @@ use think\Db;
 class Match extends Base {
 
 	protected $beforeActionList = [
-		'identity' => ['only' => 'add,changeScore'],
+		'identity' => ['only' => 'add,changeScore,getAll,getCurrentlyMatch'],
 	];
 
 	/**
@@ -41,6 +41,22 @@ class Match extends Base {
 		$matchs = MatchModel::with('team1')->with('team2')->with('score')->where('time', '<', $after3day)->where('time', '>', $today)->select()->toArray();
 		return ReturnMsg('1001', $matchs, '查询成功');
 
+	}
+	/**
+	 * 获得全部比赛
+	 */
+	public function getAll() {
+		$today = strtotime(date('Ymd'));
+		$matchs = MatchModel::with('team1')->with('team2')->with('score')->where('time', '>', $today)->select()->toArray();
+		return ReturnMsg('1001', $matchs, '查询成功');
+	}
+	/**
+	 * 获取当前正在进行的比赛
+	 */
+	public function getCurrentlyMatch() {
+		$now = time();
+		$matchs = MatchModel::with('team1')->with('team2')->with('score')->where('time', '<', $now + 3 * 3600)->where('time', '>', $now - 2 * 3600)->select()->toArray();
+		return ReturnMsg('1001', $matchs, '查询成功');
 	}
 	/**
 	 * 进球修改比分

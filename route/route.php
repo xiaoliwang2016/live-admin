@@ -10,6 +10,8 @@ Route::post('player/add', 'index/player/add');
 Route::post('match/add', 'index/match/add');
 Route::post('match/modify_score', 'index/match/changeScore');
 Route::get('match/list', 'index/match/get3DayMatch');
+Route::get('match/all', 'index/match/getAll');
+Route::get('match/live', 'index/match/getCurrentlyMatch');
 Route::get('match/get_match/:id', 'index/match/getMatchById');
 
 Route::post('live/add', 'index/commentary/add');
