@@ -32,13 +32,13 @@ class Match extends Base {
 		return ReturnMsg('1001', null, '添加比赛成功');
 	}
 	/**
-	 * 获得最近三天比赛
+	 * 获得从过去三小时到未来三天的比赛
 	 * @return list
 	 */
 	public function get3DayMatch() {
 		$today = strtotime(date('Ymd'));
 		$after3day = strtotime(date('Ymd')) + 3600 * 24 * 3;
-		$matchs = MatchModel::with('team1')->with('team2')->with('score')->where('time', '<', $after3day)->where('time', '>', $today)->select()->toArray();
+		$matchs = MatchModel::with('team1')->with('team2')->with('score')->where('time', '<', $after3day)->where('time', '>', time() - 3600 * 3)->select()->toArray();
 		return ReturnMsg('1001', $matchs, '查询成功');
 
 	}
@@ -81,7 +81,7 @@ class Match extends Base {
 					db('score')->where('match_id', $param['match_id'])->inc('team2_score')->inc('team2_second')->update();
 				}
 			}
-			GoalModel::create($this->request->param(), ['time', 'player_id', 'match_id']);
+			GoalModel::create($this->request->param(), ['time', 'player_id', 'match_id', 'team_id']);
 			Db::commit();
 		} catch (Exception $e) {
 			Db::rollback();
@@ -99,6 +99,27 @@ class Match extends Base {
 			},
 		])->with(['team1', 'team2', 'score'])->where('id', $id)->find();
 		return ReturnMsg('1001', $match, '查询成功');
+	}
+	/**
+	 * 切换到下半场
+	 */
+	public function switchStatus($id) {
+		$match = MatchModel::get($id);
+		$match->status = time();
+		$match->save();
+		return ReturnMsg('1001', $match, '成功切换到下半场');
+	}
+	/**
+	 * 开始比赛
+	 */
+	public function begainMatch($id) {
+		$match = MatchModel::get($id);
+		if ($match->live !== 1) {
+			$match->live = 1;
+			$match->time = time();
+			$match->save();
+		}
+		return ReturnMsg('1001', null, '开始比赛');
 	}
 
 }

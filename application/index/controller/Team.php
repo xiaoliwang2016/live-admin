@@ -27,4 +27,5 @@ class Team extends Base {
 		}
 		return ReturnMsg('1001', null, '添加队伍成功');
 	}
+
 }

@@ -34,4 +34,11 @@ class Player extends Base {
 		$player = PlayerModel::get($id, 'team');
 		return ReturnMsg('1001', $player, '查询成功');
 	}
+	/**
+	 * 根据id获得 该队伍下所有球员信息
+	 */
+	public function getPlayersByTeamId($id) {
+		$players = PlayerModel::where('team_id', $id)->select();
+		return ReturnMsg('1001', $players, '查询成功');
+	}
 }

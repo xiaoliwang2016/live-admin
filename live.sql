@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 2018-08-07 16:29:22
+-- Generation Time: 2018-08-10 15:35:57
 -- 服务器版本： 5.7.23-0ubuntu0.16.04.1
 -- PHP Version: 7.0.30-0ubuntu0.16.04.1
 
@@ -44,17 +44,13 @@ CREATE TABLE `commentary` (
 --
 
 INSERT INTO `commentary` (`id`, `time`, `team_id`, `match_id`, `content`, `img`, `section`, `create_time`, `update_time`, `delete_time`) VALUES
-(1, '6:01', 1, 1, '梅西带球突破底线，获得角球', NULL, 0, 1533329706, 1533329706, NULL),
-(4, '15:00', 2, 1, 'C罗单刀突破后防线，将球打入对方球门', NULL, 0, 1533329921, 1533329921, NULL),
-(3, '8:32', 1, 1, '内马尔受侵犯倒地，巴塞罗那获得任意球', 'http://wx.live.com/static/upload/20180804\\0ebfe72f36aeceb47e38296e3ad7acdf.png', 0, 1533329857, 1533329857, NULL),
-(5, '20:01', 1, 1, '苏亚雷斯又咬人了', NULL, 0, 1533329989, 1533329989, NULL),
-(59, '45:00', 1, 2, '下半场开场了', NULL, 1, 1533680625, 1533680625, NULL),
-(57, '46:00', 1, 2, '裁判终止了上半场比赛', NULL, 0, 1533680519, 1533680519, NULL),
-(53, '3:30', 3, 2, '穆勒中场长传，球出了底线', NULL, 0, 1533680400, 1533680400, NULL),
-(54, '44:00', 3, 2, '上半场快结束了..', NULL, 0, 1533680460, 1533680460, NULL),
-(48, '0:30', 1, 2, '比赛开始了', NULL, 0, 1533678489, 1533678489, NULL),
-(55, '44:00', 1, 1, '上半场快结束了..', NULL, 0, 1533680473, 1533680473, NULL),
-(56, '46:00', 1, 1, '裁判终止了上半场比赛', NULL, 0, 1533680510, 1533680510, NULL);
+(1, '00:00', 1, 1, '比赛开始啦', '', 0, 1533857951, 1533857951, NULL),
+(2, '6:54', 10, 2, '比赛开始了...', '', 0, 1533915648, 1533915648, NULL),
+(3, '8:10', 4, 2, '进球了', '', 0, 1533915724, 1533915724, NULL),
+(4, '55:12', 10, 2, '进球了', '', 1, 1533915846, 1533915846, NULL),
+(5, '55:41', 4, 2, '进球了', '', 1, 1533915875, 1533915875, NULL),
+(6, '13:28', 1, 1, '进球了', '', 0, 1533915997, 1533915997, NULL),
+(9, '44:17', 8, 1, '下半场开始了', 'http://wx.live.com/static/upload/20180811/1e8fc0354d2c2c05058510cc69aba320.jpeg', 1, 1533917845, 1533917845, NULL);
 
 -- --------------------------------------------------------
 
@@ -78,9 +74,12 @@ CREATE TABLE `goal` (
 --
 
 INSERT INTO `goal` (`id`, `time`, `player_id`, `team_id`, `match_id`, `create_time`, `delete_time`, `update_time`) VALUES
-(1, '10:43', 1, 1, 1, 1533327846, NULL, 1533327846),
-(2, '55:32', 4, 1, 1, 1533328688, NULL, 1533328688),
-(3, '55:32', 4, 1, 1, 1533328708, NULL, 1533328708);
+(1, '8:9', 19, 4, 2, 1533915723, NULL, 1533915723),
+(2, '9:9', 5, 10, 2, 1533915783, NULL, 1533915783),
+(3, '55:12', 8, 10, 2, 1533915845, NULL, 1533915845),
+(4, '55:40', 20, 4, 2, 1533915875, NULL, 1533915875),
+(5, '13:28', 13, 1, 1, 1533915997, NULL, 1533915997),
+(6, '34:6', 3, 8, 1, 1533917235, NULL, 1533917235);
 
 -- --------------------------------------------------------
 
@@ -107,12 +106,10 @@ CREATE TABLE `match` (
 --
 
 INSERT INTO `match` (`id`, `team1_id`, `team2_id`, `time`, `live`, `status`, `type`, `banner`, `create_time`, `update_time`, `delete_time`) VALUES
-(1, 1, 2, 1533691248, 1, 0, 1, 'http://wx.live.com/static/upload/20180804\\65e019d5c014b2cb8c194121b1d6e0ad.jpg', 1533316078, 1533316078, NULL),
-(2, 1, 3, 1533777648, 1, 0, 1, 'http://wx.live.com/static/upload/20180804\\65e019d5c014b2cb8c194121b1d6e0ad.jpg', 1533316133, 1533316133, NULL),
-(3, 2, 3, 1533777648, 0, 0, 1, 'http://wx.live.com/static/upload/20180804\\65e019d5c014b2cb8c194121b1d6e0ad.jpg', 1533316143, 1533316143, NULL),
-(4, 4, 3, 1533777648, 0, 0, 1, 'http://wx.live.com/static/upload/20180804\\65e019d5c014b2cb8c194121b1d6e0ad.jpg', 1533316158, 1533316158, NULL),
-(5, 4, 1, 1533864048, 0, 0, 1, 'http://wx.live.com/static/upload/20180804\\65e019d5c014b2cb8c194121b1d6e0ad.jpg', 1533316164, 1533316164, NULL),
-(8, 4, 2, 1533864048, 0, 0, 1, 'http://wx.live.com/static/upload/20180804\\65e019d5c014b2cb8c194121b1d6e0ad.jpg', 1533326724, 1533326724, NULL);
+(1, 1, 8, 1533915189, 1, 1533917835, 1, 'http://wx.live.com/static/upload/20180810/ad63346219540611c3f7dfa43a5917b3.jpg', 1533857425, 1533917835, NULL),
+(2, 4, 10, 1534104000, 0, 0, 1, 'http://wx.live.com/static/upload/20180810/e34ac0f8def737a266cf949e53371673.jpg', 1533857512, 1533915775, NULL),
+(3, 1, 4, 1533970800, 0, 0, 1, 'http://wx.live.com/static/upload/20180810/bdd7114a89e320e4854f6504ed80f988.jpg', 1533916445, 1533916445, NULL),
+(4, 7, 1, 1534050000, 0, 0, 1, 'http://wx.live.com/static/upload/20180811/85e9fba352aeb567ec1bdbe37f6bd120.jpg', 1533917113, 1533917113, NULL);
 
 -- --------------------------------------------------------
 
@@ -135,14 +132,28 @@ CREATE TABLE `player` (
 --
 
 INSERT INTO `player` (`id`, `name`, `icon`, `team_id`, `create_time`, `update_time`, `delete_time`) VALUES
-(1, '梅西', 'http://wx.live.com/static/upload/20180804\\367d573dbbeb618a8f0fc9a3b1320f04.jpg', 1, 1533313216, 1533313216, NULL),
-(2, 'C罗', 'http://wx.live.com/static/upload/20180804\\f08015ba358bdb44c2889654f1104d06.jpg', 2, 1533313362, 1533313362, NULL),
-(3, '马塞洛', 'http://wx.live.com/static/upload/20180804\\b5a8cb36b765b0fefc89ca60f623ce23.png', 2, 1533313396, 1533313396, NULL),
-(4, '内马尔', 'http://wx.live.com/static/upload/20180804\\c7665f562a877405c01cb4e446190df8.jpg', 1, 1533313418, 1533313418, NULL),
-(5, '托马斯-穆勒', 'http://wx.live.com/static/upload/20180804\\a67ab481c3b14414cd5627f2c273ea87.jpg', 3, 1533313529, 1533313529, NULL),
-(6, '莱万多夫斯基', 'http://wx.live.com/static/upload/20180804\\142647abf255997a2f21692e4eb088ef.jpg', 3, 1533313578, 1533313578, NULL),
-(7, '保罗', 'http://wx.live.com/static/upload/20180804\\9c3f0f4b7c488d90725ebe70eff39d58.png', 4, 1533313643, 1533313643, NULL),
-(8, '斯科塔', 'http://wx.live.com/static/upload/20180804\\5886a0a6208396ac0a3aafbc1087c160.png', 4, 1533313692, 1533313692, NULL);
+(1, '莱万', 'http://wx.live.com/static/upload/20180810/d0014cee614dee7dfdaca7f5fd5c0dd0.png', 8, 1533856655, 1533856655, NULL),
+(2, '穆勒', 'http://wx.live.com/static/upload/20180810/247993f72ede756b01e06d7ea7ef2f15.png', 8, 1533856671, 1533856671, NULL),
+(3, '罗本', 'http://wx.live.com/static/upload/20180810/fac42b27b122733b06bf148e54074eba.jpg', 8, 1533856697, 1533856697, NULL),
+(4, '博阿滕', 'http://wx.live.com/static/upload/20180810/444f59cf9a6a0e64ebd06b5f3af3b3bb.png', 8, 1533856725, 1533856725, NULL),
+(5, '内马尔', 'http://wx.live.com/static/upload/20180810/10a318d38dda1350a357780c23912efc.png', 10, 1533856761, 1533856761, NULL),
+(6, '姆巴佩', 'http://wx.live.com/static/upload/20180810/d0362e17685623c1bbe9ab4d02b639f4.png', 10, 1533856892, 1533856892, NULL),
+(7, '布冯', 'http://wx.live.com/static/upload/20180810/817aa2fdbde0fc7b64dd58bacc020a59.jpg', 10, 1533856903, 1533856903, NULL),
+(8, '席尔瓦', 'http://wx.live.com/static/upload/20180810/8920a7adf3fa8466b4e147b34e64fc03.png', 10, 1533856924, 1533856924, NULL),
+(9, '曼朱基奇', 'http://wx.live.com/static/upload/20180810/7394e7ce22453e419e900208246de7e0.png', 5, 1533857004, 1533857004, NULL),
+(10, '皮亚尼奇', 'http://wx.live.com/static/upload/20180810/2fa4fa54a5a148827c213a5982b93e64.jpg', 5, 1533857018, 1533857018, NULL),
+(11, 'C罗', 'http://wx.live.com/static/upload/20180810/d481c7ee53bf5563bc319a7929f6b328.png', 5, 1533857042, 1533857042, NULL),
+(12, '保罗', 'http://wx.live.com/static/upload/20180810/07a4d580b07dffbd72e76bc6a14b13b9.png', 5, 1533857054, 1533857054, NULL),
+(13, '梅西', 'http://wx.live.com/static/upload/20180810/651b5582a46e23149bea226c3182eb2b.png', 1, 1533857135, 1533857135, NULL),
+(14, '皮克', 'http://wx.live.com/static/upload/20180810/d5dbf76137ae3a587990c6538539026b.png', 1, 1533857143, 1533857143, NULL),
+(15, '拉基蒂奇', 'http://wx.live.com/static/upload/20180810/509ebc1e4615cabbe256ce842945605a.png', 1, 1533857158, 1533857158, NULL),
+(16, '苏亚雷斯', 'http://wx.live.com/static/upload/20180810/85d0f433c60c95373a344de1b5146ecd.png', 1, 1533857167, 1533857167, NULL),
+(17, '凯恩', 'http://wx.live.com/static/upload/20180810/a6d84b3c92948282e5f0f089c74a0578.png', 2, 1533857228, 1533857228, NULL),
+(18, '阿里', 'http://wx.live.com/static/upload/20180810/2808ee092c82722d1022c4fca938df27.png', 2, 1533857236, 1533857236, NULL),
+(19, '莫德里奇', 'http://wx.live.com/static/upload/20180810/f5ec0aa31164cc7fa5f03d88b2e33aeb.png', 4, 1533857274, 1533857274, NULL),
+(20, '贝尔', 'http://wx.live.com/static/upload/20180810/b37badd191890beeb1ec2f815d2cb0f5.jpg', 4, 1533857283, 1533857283, NULL),
+(21, '马塞洛', 'http://wx.live.com/static/upload/20180810/d4d97fb38fd9f89b82d89580fb5da223.png', 4, 1533857291, 1533857291, NULL),
+(22, '本泽马', 'http://wx.live.com/static/upload/20180810/286ade7597f6e83fba046c1eeeea78b2.jpg', 4, 1533857300, 1533857300, NULL);
 
 -- --------------------------------------------------------
 
@@ -168,13 +179,10 @@ CREATE TABLE `score` (
 --
 
 INSERT INTO `score` (`id`, `match_id`, `team1_score`, `team2_score`, `team1_first`, `team2_first`, `team1_second`, `team2_second`, `create_time`, `delete_time`) VALUES
-(1, 1, 3, 0, 1, 0, 2, 0, NULL, NULL),
-(2, 2, 0, 0, 0, 0, 0, 0, NULL, NULL),
-(3, 3, 0, 0, 0, 0, 0, 0, NULL, NULL),
-(4, 4, 0, 0, 0, 0, 0, 0, NULL, NULL),
-(5, 5, 0, 0, 0, 0, 0, 0, NULL, NULL),
-(6, 6, 0, 0, 0, 0, 0, 0, 1533326192, NULL),
-(8, 8, 0, 0, 0, 0, 0, 0, 1533326724, NULL);
+(1, 1, 1, 1, 1, 0, 0, 1, 1533857425, NULL),
+(2, 2, 2, 2, 1, 0, 1, 2, 1533857512, NULL),
+(3, 3, 0, 0, 0, 0, 0, 0, 1533916445, NULL),
+(4, 4, 0, 0, 0, 0, 0, 0, 1533917113, NULL);
 
 -- --------------------------------------------------------
 
@@ -196,10 +204,15 @@ CREATE TABLE `team` (
 --
 
 INSERT INTO `team` (`id`, `name`, `icon`, `update_time`, `create_time`, `delete_time`) VALUES
-(1, '巴塞罗那', 'http://wx.live.com/static/upload/20180803\\4b7429fa1d3c591cb770d0e398d4cd41.jpg', 1533311982, 1533311982, NULL),
-(2, '皇家马德里', 'http://wx.live.com/static/upload/20180804\\e1c6cc148a89cb5a0082bc37ad863420.png', 1533312024, 1533312024, NULL),
-(3, '拜仁慕尼黑', 'http://wx.live.com/static/upload/20180804\\e9508e5d4e0b5de5cc85536df61d893d.png', 1533312146, 1533312146, NULL),
-(4, '尤文图斯', 'http://wx.live.com/static/upload/20180804\\22a85e25e845230101f72da2c1742ad4.png', 1533312163, 1533312163, NULL);
+(1, '巴塞罗那', 'http://wx.live.com/static/upload/20180810/f947fbdebb44ae478ccb242e248b87b1.png', 1533855705, 1533855705, NULL),
+(2, '热刺', 'http://wx.live.com/static/upload/20180810/8df620d76b4b6c5a30f41e3f2285d19c.png', 1533855738, 1533855738, NULL),
+(3, 'AC米兰', 'http://wx.live.com/static/upload/20180810/6017ce49f6e8892cd51e9be749edde41.png', 1533855770, 1533855770, NULL),
+(4, '皇家马德里', 'http://wx.live.com/static/upload/20180810/a80374d850f4b8d52175b71c1153fe9a.png', 1533855802, 1533855802, NULL),
+(5, '尤文图斯', 'http://wx.live.com/static/upload/20180810/18b9bec651a69a76ae4f04139448f096.png', 1533855837, 1533855837, NULL),
+(6, '马德里竞技', 'http://wx.live.com/static/upload/20180810/8c971b89716b33ede3f5e491f1d2cfb0.png', 1533855870, 1533855870, NULL),
+(7, '切尔西', 'http://wx.live.com/static/upload/20180810/4589c96d1d68e7b66d112c4f70d21572.png', 1533855937, 1533855937, NULL),
+(8, '拜仁慕尼黑', 'http://wx.live.com/static/upload/20180810/67e22a377b7f7d1996792293c421219e.png', 1533855981, 1533855981, NULL),
+(10, '巴黎圣日耳曼', 'http://wx.live.com/static/upload/20180810/5b57da2949c8f663cc17fc3db56dfd9f.png', 1533856024, 1533856024, NULL);
 
 -- --------------------------------------------------------
 
@@ -218,7 +231,11 @@ CREATE TABLE `token` (
 --
 
 INSERT INTO `token` (`id`, `token`, `expire`) VALUES
-(1, 'e5ea9b6d71086dfef3a15f726abcc5bf', 1533856326);
+(1, '51f13c1e733c4409718fc85e5b21933f', 1534114877),
+(2, 'f11b12dbc5aa36baa5c31e14b454cf3b', 1534170790),
+(3, '8a7a4d7de8942f8d44de30cff2808587', 1534173591),
+(4, '77bb01527a6a89a4018bff5a322ef045', 1534175566),
+(5, '6d08c98da72bcdd7246702bf7d9859a9', 1534176166);
 
 --
 -- Indexes for dumped tables
@@ -274,37 +291,37 @@ ALTER TABLE `token`
 -- 使用表AUTO_INCREMENT `commentary`
 --
 ALTER TABLE `commentary`
-  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- 使用表AUTO_INCREMENT `goal`
 --
 ALTER TABLE `goal`
-  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- 使用表AUTO_INCREMENT `match`
 --
 ALTER TABLE `match`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- 使用表AUTO_INCREMENT `player`
 --
 ALTER TABLE `player`
-  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- 使用表AUTO_INCREMENT `score`
 --
 ALTER TABLE `score`
-  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- 使用表AUTO_INCREMENT `team`
 --
 ALTER TABLE `team`
-  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` smallint(5) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- 使用表AUTO_INCREMENT `token`
 --
 ALTER TABLE `token`
-  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` smallint(6) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
